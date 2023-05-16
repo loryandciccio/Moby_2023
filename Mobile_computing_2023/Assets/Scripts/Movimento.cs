@@ -8,12 +8,13 @@ public class Movimento : MonoBehaviour
     public float jump = 5;
     SpriteRenderer renderer;
     Rigidbody2D rb;
-
+    Animator animNewBie;
     // Start is called before the first frame update
     void Start()
     {
         renderer = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
+        animNewBie = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -26,18 +27,26 @@ public class Movimento : MonoBehaviour
             transform.Translate(new Vector3(speed*Time.deltaTime, 0, 0));
             // con Time.delta.Time ricavo l'unita di spostamento al secondo
             renderer.flipX = false;
+            animNewBie.SetInteger("camminata", 1);
         }
-        if (Input.GetKey(KeyCode.LeftArrow))
+       
+        else if (Input.GetKey(KeyCode.LeftArrow))
         {
             // qui cambio la position del player
             transform.Translate(new Vector3(-speed*Time.deltaTime, 0, 0));
             renderer.flipX = true;
+            animNewBie.SetInteger("camminata", 1);
 
+        }
+        else
+        {
+            animNewBie.SetInteger("camminata", 0);
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log("salto");
             rb.AddForce(new Vector2(0, jump), ForceMode2D.Impulse);
+            animNewBie.SetTrigger("Salto");
         }
     }
 }
