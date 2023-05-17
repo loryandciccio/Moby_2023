@@ -6,13 +6,13 @@ public class Movimento : MonoBehaviour
 {
     public float speed = 5;
     public float jump = 5;
-    SpriteRenderer renderer;
+    SpriteRenderer rend;
     Rigidbody2D rb;
     Animator animNewBie;
     // Start is called before the first frame update
     void Start()
     {
-        renderer = GetComponent<SpriteRenderer>();
+        rend = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         animNewBie = GetComponent<Animator>();
     }
@@ -26,7 +26,7 @@ public class Movimento : MonoBehaviour
             // qui cambio la position del player
             transform.Translate(new Vector3(speed*Time.deltaTime, 0, 0));
             // con Time.delta.Time ricavo l'unita di spostamento al secondo
-            renderer.flipX = false;
+            rend.flipX = false;
             animNewBie.SetInteger("camminata", 1);
         }
        
@@ -34,7 +34,7 @@ public class Movimento : MonoBehaviour
         {
             // qui cambio la position del player
             transform.Translate(new Vector3(-speed*Time.deltaTime, 0, 0));
-            renderer.flipX = true;
+            rend.flipX = true;
             animNewBie.SetInteger("camminata", 1);
 
         }
