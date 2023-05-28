@@ -20,8 +20,8 @@ public class Collisioni : MonoBehaviour
         {
             gameManager.moscheCatturate++;
             Debug.Log("Ho colpito una mosca");
-            Destroy(collision.gameObject);
-            gameManager.ScriviValoreMosche();
+            Destroy(collision.gameObject);   // elimino l'oggetto una volta colpito 
+            gameManager.ScriviValoreMosche();  // mostro il valore aggiornato
             
         }
 

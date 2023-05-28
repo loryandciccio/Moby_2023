@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
 
     public void ScriviValoreMosche()
     {
+        //il ToString mi permette di convertire i numeri che ho nel Tmtext in string
         testoMosche.text = moscheCatturate.ToString();
     }
     public void ScriviValoreMonete()
