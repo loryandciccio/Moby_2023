@@ -37,8 +37,13 @@ public class Collisioni : MonoBehaviour
         if (collision.gameObject.tag == "cibo")
         {
             gameManager.energia += 10;
+            if (gameManager.energia > 100)
+            {
+                gameManager.energia = 100;
+            }
             Debug.Log("Ho colpito un cibo");
             Destroy(collision.gameObject);
+            gameManager.CambiaBarraEnergia();
          }
     }
     //Se voglio che l'oggetto venga colpito ma il personaggio ci può passare sopra abilito IsTrigger sull'oggetto
@@ -48,7 +53,13 @@ public class Collisioni : MonoBehaviour
         if (collision.gameObject.tag == "puntina")
         {
             gameManager.energia -= 10;
+            if (gameManager.energia < 0)
+            {
+                gameManager.energia = 0;
+                // GAME OVER
+            }
             Debug.Log("Ho colpito una puntina");
+            gameManager.CambiaBarraEnergia();
         }
     }
 

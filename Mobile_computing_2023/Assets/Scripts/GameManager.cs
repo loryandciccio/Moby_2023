@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     public TMP_Text testoMosche;
     public TMP_Text testoMonete;
 
+    public RectTransform barra;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,5 +29,10 @@ public class GameManager : MonoBehaviour
     public void ScriviValoreMonete()
     {
         testoMonete.text = monetePrese.ToString();
+    }
+
+    public void CambiaBarraEnergia()
+    {
+        barra.sizeDelta = new Vector2(energia*3, 40);
     }
 }
