@@ -14,6 +14,13 @@ public class Collisioni : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        
+    }
+    //Se voglio che l'oggetto venga colpito ma il personaggio ci può passare sopra abilito IsTrigger sull'oggetto
+    //e faccio questo
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+
         //se il tag dell'oggetto con cui sono entrato in collisione aggiungo una mosca
         //ad una variabile mosca che si incrementa
         if (collision.gameObject.tag == "mosca")
@@ -22,7 +29,7 @@ public class Collisioni : MonoBehaviour
             Debug.Log("Ho colpito una mosca");
             Destroy(collision.gameObject);   // elimino l'oggetto una volta colpito 
             gameManager.ScriviValoreMosche();  // mostro il valore aggiornato
-            
+
         }
 
         if (collision.gameObject.tag == "moneta")
@@ -31,7 +38,7 @@ public class Collisioni : MonoBehaviour
             Debug.Log("Ho colpito una moneta");
             Destroy(collision.gameObject);
             gameManager.ScriviValoreMonete();
-            
+
         }
 
         if (collision.gameObject.tag == "cibo")
@@ -44,12 +51,8 @@ public class Collisioni : MonoBehaviour
             Debug.Log("Ho colpito un cibo");
             Destroy(collision.gameObject);
             gameManager.CambiaBarraEnergia();
-         }
-    }
-    //Se voglio che l'oggetto venga colpito ma il personaggio ci può passare sopra abilito IsTrigger sull'oggetto
-    //e faccio questo
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
+        }
+
         if (collision.gameObject.tag == "puntina")
         {
             gameManager.energia -= 10;
