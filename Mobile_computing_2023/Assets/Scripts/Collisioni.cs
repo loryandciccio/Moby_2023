@@ -19,23 +19,27 @@ public class Collisioni : MonoBehaviour
         if (collision.gameObject.tag == "mosca")
         {
             gameManager.moscheCatturate++;
-            Destroy(collision.gameObject);
             Debug.Log("Ho colpito una mosca");
+            Destroy(collision.gameObject);
+            gameManager.ScriviValoreMosche();
+            
         }
 
         if (collision.gameObject.tag == "moneta")
         {
             gameManager.monetePrese++;
-            Destroy(collision.gameObject);
             Debug.Log("Ho colpito una moneta");
+            Destroy(collision.gameObject);
+            gameManager.ScriviValoreMonete();
+            
         }
 
         if (collision.gameObject.tag == "cibo")
         {
             gameManager.energia += 10;
+            Debug.Log("Ho colpito un cibo");
             Destroy(collision.gameObject);
-            Debug.Log("Ho colpito il cibo");
-        }
+         }
     }
     //Se voglio che l'oggetto venga colpito ma il personaggio ci può passare sopra abilito IsTrigger sull'oggetto
     //e faccio questo
@@ -43,7 +47,7 @@ public class Collisioni : MonoBehaviour
     {
         if (collision.gameObject.tag == "puntina")
         {
-            gameManager.energia -= 20;
+            gameManager.energia -= 10;
             Debug.Log("Ho colpito una puntina");
         }
     }
