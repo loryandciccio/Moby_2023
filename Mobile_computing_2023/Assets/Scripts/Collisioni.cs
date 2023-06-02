@@ -5,11 +5,12 @@ using UnityEngine;
 public class Collisioni : MonoBehaviour
 {
     public GameManager gameManager;
+    AudioManager audioManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -27,18 +28,20 @@ public class Collisioni : MonoBehaviour
         {
             gameManager.moscheCatturate++;
             Debug.Log("Ho colpito una mosca");
+            gameManager.ScriviValoreMosche();  // mostro il valore aggiornato
+            audioManager.EseguiAudio(collision.gameObject.GetComponent<AudioSource>());
             Destroy(collision.gameObject);   // elimino l'oggetto una volta colpito 
             gameManager.ScriviValoreMosche();  // mostro il valore aggiornato
-
         }
 
         if (collision.gameObject.tag == "moneta")
         {
             gameManager.monetePrese++;
             Debug.Log("Ho colpito una moneta");
-            Destroy(collision.gameObject);
+            
             gameManager.ScriviValoreMonete();
-
+            audioManager.EseguiAudio(collision.gameObject.GetComponent<AudioSource>());
+            Destroy(collision.gameObject);
         }
 
         if (collision.gameObject.tag == "cibo")
@@ -49,8 +52,10 @@ public class Collisioni : MonoBehaviour
                 gameManager.energia = 100;
             }
             Debug.Log("Ho colpito un cibo");
-            Destroy(collision.gameObject);
+            
             gameManager.CambiaBarraEnergia();
+            audioManager.EseguiAudio(collision.gameObject.GetComponent<AudioSource>());
+            Destroy(collision.gameObject);
         }
 
         if (collision.gameObject.tag == "puntina")
@@ -63,6 +68,7 @@ public class Collisioni : MonoBehaviour
             }
             Debug.Log("Ho colpito una puntina");
             gameManager.CambiaBarraEnergia();
+            audioManager.EseguiAudio(collision.gameObject.GetComponent<AudioSource>());
         }
     }
 
