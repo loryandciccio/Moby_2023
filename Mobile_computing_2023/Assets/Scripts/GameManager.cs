@@ -15,9 +15,12 @@ public class GameManager : MonoBehaviour
 
     public RectTransform barra;
 
+    GestioneScene gestioneScene;
+
     // Start is called before the first frame update
     void Start()
     {
+        gestioneScene = FindObjectOfType<GestioneScene>();
         ScriviValoreMonete();
         ScriviValoreMosche();
     }
@@ -26,6 +29,10 @@ public class GameManager : MonoBehaviour
     {
         //il ToString mi permette di convertire i numeri che ho nel Tmtext in string
         testoMosche.text = moscheCatturate.ToString();
+        if(moscheCatturate == 10)
+        {
+            gestioneScene.CaricaScena("Win");
+        }
     }
     public void ScriviValoreMonete()
     {
@@ -35,5 +42,9 @@ public class GameManager : MonoBehaviour
     public void CambiaBarraEnergia()
     {
         barra.sizeDelta = new Vector2(energia*3, 40);
+        if(energia <= 0)
+        {
+            gestioneScene.CaricaScena("GameOver");
+        }
     }
 }
