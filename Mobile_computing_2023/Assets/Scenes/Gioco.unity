@@ -4818,6 +4818,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1432003733948887646, guid: c95e3b23c40ac92499fdd8df7ffec8fd, type: 3}
   m_PrefabInstance: {fileID: 1107718021}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1125026906 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 461341792977323321, guid: 41df90ce5fcae473a93f6e15c164c386, type: 3}
+  m_PrefabInstance: {fileID: 7964279106317831821}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1126069787
 GameObject:
   m_ObjectHideFlags: 0
@@ -5261,6 +5266,40 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1384171611 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 461341792977323321, guid: 41df90ce5fcae473a93f6e15c164c386, type: 3}
+  m_PrefabInstance: {fileID: 215006922}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1384171615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384171611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 984796072}
+          m_TargetAssemblyTypeName: Movimento, Assembly-CSharp
+          m_MethodName: eseguiSalto
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &1403641574
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5964,6 +6003,56 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1696768502 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 461341792977323321, guid: 41df90ce5fcae473a93f6e15c164c386, type: 3}
+  m_PrefabInstance: {fileID: 453413513}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1696768506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1696768502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 984796072}
+          m_TargetAssemblyTypeName: Movimento, Assembly-CSharp
+          m_MethodName: cliccoSinistro
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 984796072}
+          m_TargetAssemblyTypeName: Movimento, Assembly-CSharp
+          m_MethodName: LascioSinistro
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &1704668852
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7754,3 +7843,48 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6203579207114387398, guid: 41df90ce5fcae473a93f6e15c164c386, type: 3}
   m_PrefabInstance: {fileID: 7964279106317831821}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7964279106317831826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1125026906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 984796072}
+          m_TargetAssemblyTypeName: Movimento, Assembly-CSharp
+          m_MethodName: cliccoDestro
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 984796072}
+          m_TargetAssemblyTypeName: Movimento, Assembly-CSharp
+          m_MethodName: LascioDestro
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2

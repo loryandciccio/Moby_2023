@@ -6,9 +6,16 @@ public class Movimento : MonoBehaviour
 {
     public float speed = 5;
     public float jump = 5;
+
     SpriteRenderer rend;
     Rigidbody2D rb;
     Animator animNewBie;
+
+
+    bool premoDestro = false;
+    bool premoSinistro = false;
+    bool salto = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +28,7 @@ public class Movimento : MonoBehaviour
     void Update()
     {
         // se il tasto premuto e' freccia destra sposto il player di 1 a destra
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow) || premoDestro == true)
         {
             // qui cambio la position del player
             transform.Translate(new Vector3(speed*Time.deltaTime, 0, 0));
@@ -30,7 +37,7 @@ public class Movimento : MonoBehaviour
             animNewBie.SetInteger("camminata", 1);
         }
        
-        else if (Input.GetKey(KeyCode.LeftArrow))
+        else if (Input.GetKey(KeyCode.LeftArrow) || premoSinistro == true )
         {
             // qui cambio la position del player
             transform.Translate(new Vector3(-speed*Time.deltaTime, 0, 0));
@@ -42,11 +49,33 @@ public class Movimento : MonoBehaviour
         {
             animNewBie.SetInteger("camminata", 0);
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || salto == true)
         {
             Debug.Log("salto");
             rb.AddForce(new Vector2(0, jump), ForceMode2D.Impulse);
             animNewBie.SetTrigger("Salto");
+            salto = false;
         }
+    }
+    public void cliccoDestro()
+    {
+        premoDestro = true;
+    }
+    public void LascioDestro()
+    {
+        premoDestro = false;
+    }
+    public void cliccoSinistro()
+    {
+        premoSinistro = true;
+    }
+    public void LascioSinistro()
+    {
+        premoSinistro = false;
+    }
+
+    public void eseguiSalto()
+    {
+        salto = true;
     }
 }
