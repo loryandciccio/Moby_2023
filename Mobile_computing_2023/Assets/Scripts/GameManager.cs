@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
         if(moscheCatturate == 10)
         {
             gestioneScene.CaricaScena("win");
+           
         }
     }
     public void ScriviValoreMonete()

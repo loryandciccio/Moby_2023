@@ -15,4 +15,5 @@ public class GestioneScene : MonoBehaviour
     {
         SceneManager.LoadScene(nome);
     }
+  
 }
