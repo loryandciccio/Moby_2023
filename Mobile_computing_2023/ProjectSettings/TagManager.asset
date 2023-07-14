@@ -8,6 +8,8 @@ TagManager:
   - puntina
   - cibo
   - moneta
+  - iguana
+  - Newbie
   layers:
   - Default
   - TransparentFX

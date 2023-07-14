@@ -30,11 +30,11 @@ public class GameManager : MonoBehaviour
     {
         //il ToString mi permette di convertire i numeri che ho nel Tmtext in string
         testoMosche.text = moscheCatturate.ToString();
-        if(moscheCatturate == 1)
-        {
-            gestioneScene.CaricaScena("win");
+       // if(moscheCatturate == 1)
+        //{
+            //gestioneScene.CaricaScena("win");
             
-        }
+        //}
     }
     public void ScriviValoreMonete()
     {

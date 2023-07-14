@@ -57,6 +57,16 @@ public class Collisioni : MonoBehaviour
             audioManager.EseguiAudio(collision.gameObject.GetComponent<AudioSource>());
             Destroy(collision.gameObject);
         }
+        //collisione con un'iguana
+        if (collision.gameObject.tag == "iguana")
+        {
+            gameManager.monetePrese++;
+            Debug.Log("Ho colpito un iguana");
+
+            //gameManager.ScriviValoreMonete();
+            //audioManager.EseguiAudio(collision.gameObject.GetComponent<AudioSource>());
+            //Destroy(collision.gameObject);
+        }
 
         if (collision.gameObject.tag == "puntina")
         {
