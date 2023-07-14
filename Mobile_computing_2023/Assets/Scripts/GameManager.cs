@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        PlayerPrefs.DeleteAll();
         gestioneScene = FindObjectOfType<GestioneScene>();
         ScriviValoreMonete();
         ScriviValoreMosche();
@@ -29,10 +30,10 @@ public class GameManager : MonoBehaviour
     {
         //il ToString mi permette di convertire i numeri che ho nel Tmtext in string
         testoMosche.text = moscheCatturate.ToString();
-        if(moscheCatturate == 10)
+        if(moscheCatturate == 1)
         {
             gestioneScene.CaricaScena("win");
-           
+            PlayerPrefs.SetInt("unlockedLevel", PlayerPrefs.GetInt("unlockedLevel", 1)+1);
         }
     }
     public void ScriviValoreMonete()
@@ -42,8 +43,8 @@ public class GameManager : MonoBehaviour
 
     public void CambiaBarraEnergia()
     {
-        barra.sizeDelta = new Vector2(energia*3, 40);
-        if(energia <= 0)
+        barra.sizeDelta = new Vector2(energia * 3, 40);
+        if (energia <= 0)
         {
             gestioneScene.CaricaScena("GameOver");
         }

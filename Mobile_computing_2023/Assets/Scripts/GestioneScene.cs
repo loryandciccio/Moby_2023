@@ -15,5 +15,9 @@ public class GestioneScene : MonoBehaviour
     {
         SceneManager.LoadScene(nome);
     }
-  
+
+    public void CaricaLivello()
+    {
+        SceneManager.LoadScene("level" + PlayerPrefs.GetInt("unlockedLevel", 1));
+    }
 }
