@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
         if(moscheCatturate == 1)
         {
             gestioneScene.CaricaScena("win");
-            PlayerPrefs.SetInt("unlockedLevel", PlayerPrefs.GetInt("unlockedLevel", 1)+1);
+            
         }
     }
     public void ScriviValoreMonete()
