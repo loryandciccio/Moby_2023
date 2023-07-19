@@ -12,7 +12,6 @@ public class GameManager : MonoBehaviour
 
     public TMP_Text testoMosche;
     public TMP_Text testoMonete;
-
     public RectTransform barra;
 
     GestioneScene gestioneScene;
@@ -39,6 +38,8 @@ public class GameManager : MonoBehaviour
     public void ScriviValoreMonete()
     {
         testoMonete.text = monetePrese.ToString();
+        PlayerPrefs.SetInt("MoneteAccumulate", PlayerPrefs.GetInt("MoneteAccumulate") + 1);
+        
     }
 
     public void CambiaBarraEnergia()
