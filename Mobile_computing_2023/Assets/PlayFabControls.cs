@@ -4,11 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using PlayFab;
 using PlayFab.ClientModels;
+using TMPro;
 
 public class PlayFabControls : MonoBehaviour
 {
     [SerializeField] GameObject signUpTab, logInTab, startPanel, HUD;
-    public TextMesh username, emailSign, passwordSign, emailLog, passwordLog, errorSign, errorLog;
+    public TextMeshProUGUI username, emailSign, passwordSign, emailLog, passwordLog, errorSign, errorLog;
     string encryptedPassword;
 
 

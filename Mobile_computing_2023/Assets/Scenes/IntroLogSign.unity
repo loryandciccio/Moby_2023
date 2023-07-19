@@ -833,11 +833,11 @@ MonoBehaviour:
   logInTab: {fileID: 222661526}
   startPanel: {fileID: 1791270126}
   HUD: {fileID: 1956764616}
-  username: {fileID: 740328709}
-  emailSign: {fileID: 1791027565}
-  passwordSign: {fileID: 1436120876}
-  emailLog: {fileID: 1286255427}
-  passwordLog: {fileID: 1710326171}
+  username: {fileID: 740328711}
+  emailSign: {fileID: 1791027567}
+  passwordSign: {fileID: 1436120878}
+  emailLog: {fileID: 1286255429}
+  passwordLog: {fileID: 1710326173}
   errorSign: {fileID: 0}
   errorLog: {fileID: 0}
 --- !u!4 &493235288
