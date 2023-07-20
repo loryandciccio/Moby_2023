@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public RectTransform barra;
 
     GestioneScene gestioneScene;
+    public int valoreMonetePrese;
 
     // Start is called before the first frame update
     void Start()
@@ -40,8 +41,10 @@ public class GameManager : MonoBehaviour
     public void ScriviValoreMonete()
     {
         testoMonete.text = monetePrese.ToString();
-        PlayerPrefs.SetInt("MoneteAccumulate", PlayerPrefs.GetInt("MoneteAccumulate") + 1);
-        
+        valoreMonetePrese = int.Parse(monetePrese.ToString());
+        PlayerPrefs.SetInt("MonetePrese", valoreMonetePrese);
+        //PlayerPrefs.SetInt("MoneteAccumulate", PlayerPrefs.GetInt("MoneteAccumulate") + 1);
+
     }
 
     public void CambiaBarraEnergia()

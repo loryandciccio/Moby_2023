@@ -8,17 +8,18 @@ public class MainMenu : MonoBehaviour
 {
     public TMP_Text Monete;
     public TMP_Text CostoInMonete;
-    private int moneteTotali; // Aggiungiamo una variabile per memorizzare il totale delle monete.
+    public int moneteTotali; // Aggiungiamo una variabile per memorizzare il totale delle monete.
 
     void Start()
     {
         // Recuperiamo il valore corrente delle monete totali (se presente) dal PlayerPref.
-        moneteTotali = PlayerPrefs.GetInt("MoneteAccumulate", 0);
+        moneteTotali = PlayerPrefs.GetInt("MonetePrese");
         UpdateMoneteText();
     }
 
     void Update()
     {
+        UpdateMoneteText();
         // Qui puoi aggiornare visivamente le monete durante il gioco, se necessario.
     }
 
@@ -35,16 +36,11 @@ public class MainMenu : MonoBehaviour
         }
     }
 
-    public void IncrementaMonete(int quantitaMonete)
-    {
-        moneteTotali += quantitaMonete; // Incrementiamo il totale delle monete quando il giocatore ne raccoglie durante il gioco.
-        UpdateMoneteText();
-    }
 
     private void UpdateMoneteText()
     {
         Monete.text = moneteTotali.ToString();
-        PlayerPrefs.SetInt("MoneteTotali", moneteTotali); // Salviamo il nuovo totale delle monete nel PlayerPref.
+        PlayerPrefs.SetInt("MonetePrese", moneteTotali); // Salviamo il nuovo totale delle monete nel PlayerPref.
     }
 
     public void PlayGame()

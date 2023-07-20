@@ -37,6 +37,8 @@ public class Collisioni : MonoBehaviour
         if (collision.gameObject.tag == "moneta")
         {
             gameManager.monetePrese++;
+            
+            
             Debug.Log("Ho colpito una moneta");
 
             //gameManager.mainMenu.IncrementaMonete(1);
@@ -63,7 +65,9 @@ public class Collisioni : MonoBehaviour
         //collisione con un'iguana
         if (collision.gameObject.tag == "iguana")
         {
-            gameManager.monetePrese++;
+            //gameManager.monetePrese++;
+            
+     
             Debug.Log("Ho colpito un iguana");
 
             //gameManager.ScriviValoreMonete();
