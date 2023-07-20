@@ -38,6 +38,9 @@ public class Collisioni : MonoBehaviour
         {
             gameManager.monetePrese++;
             Debug.Log("Ho colpito una moneta");
+
+            //gameManager.mainMenu.IncrementaMonete(1);
+            
             
             gameManager.ScriviValoreMonete();
             audioManager.EseguiAudio(collision.gameObject.GetComponent<AudioSource>());
