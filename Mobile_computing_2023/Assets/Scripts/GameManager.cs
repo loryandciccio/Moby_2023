@@ -17,7 +17,8 @@ public class GameManager : MonoBehaviour
     public RectTransform barra;
 
     GestioneScene gestioneScene;
-    public int valoreMonetePrese;
+    //public int valoreMonetePrese;
+    private int moneteAttuali;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +27,11 @@ public class GameManager : MonoBehaviour
         gestioneScene = FindObjectOfType<GestioneScene>();
         ScriviValoreMonete();
         ScriviValoreMosche();
+        moneteAttuali = PlayerPrefs.GetInt("MoneteAccumulate");
+    }
+    private void Update()
+    {
+        PlayerPrefs.SetInt("MoneteAccumulate", moneteAttuali);
     }
 
     public void ScriviValoreMosche()
@@ -41,9 +47,11 @@ public class GameManager : MonoBehaviour
     public void ScriviValoreMonete()
     {
         testoMonete.text = monetePrese.ToString();
+        /*
         valoreMonetePrese = int.Parse(monetePrese.ToString());
         PlayerPrefs.SetInt("MonetePrese", valoreMonetePrese);
-        //PlayerPrefs.SetInt("MoneteAccumulate", PlayerPrefs.GetInt("MoneteAccumulate") + 1);
+        */
+        moneteAttuali += 1;
 
     }
 
