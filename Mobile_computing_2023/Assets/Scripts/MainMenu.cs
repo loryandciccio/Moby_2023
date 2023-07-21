@@ -18,13 +18,13 @@ public class MainMenu : MonoBehaviour
         Monete.text = PlayerPrefs.GetInt("MoneteAccumulate").ToString();
     }
 
-    /*
+    
     void Update()
     {
         //UpdateMoneteText();
         // Qui puoi aggiornare visivamente le monete durante il gioco, se necessario.
         Monete.text = PlayerPrefs.GetInt("MoneteAccumulate").ToString();
-    }*/
+    }
 
     public void AcquistaBoost()
     {

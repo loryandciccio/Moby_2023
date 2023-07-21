@@ -836,12 +836,12 @@ MonoBehaviour:
   startPanel: {fileID: 1791270126}
   HUD: {fileID: 1956764616}
   username: {fileID: 740328711}
-  emailSign: {fileID: 1791027567}
-  passwordSign: {fileID: 1436120878}
-  emailLog: {fileID: 1286255429}
-  passwordLog: {fileID: 1710326173}
-  errorSign: {fileID: 1652954858}
-  errorLog: {fileID: 1327384251}
+  userEmail: {fileID: 1791027567}
+  userPassword: {fileID: 1436120878}
+  userEmailLogIn: {fileID: 1286255429}
+  userPasswordLogIn: {fileID: 1710326173}
+  errorSignUp: {fileID: 1652954858}
+  errorLogIn: {fileID: 1327384251}
 --- !u!4 &493235288
 Transform:
   m_ObjectHideFlags: 0
@@ -3456,7 +3456,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1482489046}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3467,7 +3467,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -318}
+  m_AnchoredPosition: {x: 0, y: -317.99994}
   m_SizeDelta: {x: 300, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1482489048
