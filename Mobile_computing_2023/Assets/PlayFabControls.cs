@@ -7,9 +7,9 @@ using System.Collections;
 public class PlayFabControls : MonoBehaviour
 {
     [SerializeField] GameObject signUpTab, logInTab, startPanel, HUD;
-    public TextMeshProUGUI username, userEmail, userPassword,userEmailLogIn, userPasswordLogIn, errorSignUp, errorLogIn;
+    public TextMeshProUGUI username, userEmail, userPassword,userEmailLogIn, userPasswordLogIn, errorSignUp, errorLogIn,errorSendRecovery;
     string encryptedPassword;
-  
+    private string playfabTitleId = "title.32B77";
 
 
     public void SignUpTab()
@@ -113,4 +113,46 @@ public class PlayFabControls : MonoBehaviour
         startPanel.SetActive(false);
         HUD.SetActive(true);
     }
+
+
+
+    public void RecoverPassword()
+    {
+        if (string.IsNullOrEmpty(userEmail.text))
+        {
+            Debug.LogError("Inserisci prima l'email per il recupero della password!");
+            return;
+        }
+
+        SendAccountRecoveryEmailRequest request = new SendAccountRecoveryEmailRequest { Email = userEmailLogIn.text, TitleId =playfabTitleId };
+   
+
+        PlayFabClientAPI.SendAccountRecoveryEmail(request, OnPasswordRecoverySuccess, OnPasswordRecoveryFailure);
+    }
+
+    private void OnPasswordRecoverySuccess(SendAccountRecoveryEmailResult result)
+    {
+        Debug.Log("Email di recupero inviata con successo all'indirizzo: " + userEmail);
+    }
+
+    private IEnumerator ShowErrorAndHideRecovery(PlayFabError error)
+    {
+        Debug.LogError("Recupero password fallito: " + error.ErrorMessage);
+        float duration = 3f;
+
+        // Attiva il Canvas
+        errorSendRecovery.gameObject.SetActive(true);
+
+        // Attendere per la durata specificata
+        yield return new WaitForSeconds(duration);
+
+        // Disattiva il Canvas dopo il ritardo
+        errorSendRecovery.gameObject.SetActive(false);
+    }
+    private void OnPasswordRecoveryFailure(PlayFabError error)
+    {
+        StartCoroutine(ShowErrorAndHideRecovery(error));
+    }
 }
+
+
