@@ -9,7 +9,8 @@ public class PlayFabControls : MonoBehaviour
     [SerializeField] GameObject signUpTab, logInTab, startPanel, HUD;
     public TextMeshProUGUI username, userEmail, userPassword,userEmailLogIn, userPasswordLogIn, errorSignUp, errorLogIn,errorSendRecovery;
     string encryptedPassword;
-    private string playfabTitleId = "title.32B77";
+    private string playfabTitleId = "32B77";
+    private string emailProva = "lcozzolino01@gmail.com";
 
 
     public void SignUpTab()
@@ -124,7 +125,7 @@ public class PlayFabControls : MonoBehaviour
             return;
         }
 
-        SendAccountRecoveryEmailRequest request = new SendAccountRecoveryEmailRequest { Email = userEmailLogIn.text, TitleId =playfabTitleId };
+        var request = new SendAccountRecoveryEmailRequest { Email = userEmailLogIn.text, TitleId =playfabTitleId };
    
 
         PlayFabClientAPI.SendAccountRecoveryEmail(request, OnPasswordRecoverySuccess, OnPasswordRecoveryFailure);
