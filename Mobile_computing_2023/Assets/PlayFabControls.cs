@@ -10,7 +10,7 @@ public class PlayFabControls : MonoBehaviour
     public TextMeshProUGUI username, userEmail, userPassword,userEmailLogIn, userPasswordLogIn, errorSignUp, errorLogIn,errorSendRecovery;
     string encryptedPassword;
     private string playfabTitleId = "32B77";
-    private string emailProva = "lcozzolino01@gmail.com";
+    //private string emailProva = "lcozzolino01@gmail.com";
 
 
     public void SignUpTab()
