@@ -7,10 +7,10 @@ using System.Collections;
 public class PlayFabControls : MonoBehaviour
 {
     [SerializeField] GameObject signUpTab, logInTab, startPanel, HUD;
-    public TextMeshProUGUI username, userEmail, userPassword,userEmailLogIn, userPasswordLogIn, errorSignUp, errorLogIn,errorSendRecovery;
+    public TextMeshProUGUI username, userEmail, userPassword, userEmailLogIn, userPasswordLogIn, errorSignUp, errorLogIn, errorSendRecovery,emailBackUp;
     string encryptedPassword;
     private string playfabTitleId = "32B77";
-    private string emailProva = "lcozzolino01@gmail.com";
+    //private string emailProva = "lcozzolino01@gmail.com";
 
 
     public void SignUpTab()
@@ -27,7 +27,7 @@ public class PlayFabControls : MonoBehaviour
         errorSignUp.text = " ";
         errorLogIn.text = " ";
     }
-    
+
     string Encrypt(string pass)
     {
         System.Security.Cryptography.MD5CryptoServiceProvider x = new System.Security.Cryptography.MD5CryptoServiceProvider();
@@ -77,10 +77,10 @@ public class PlayFabControls : MonoBehaviour
         errorSignUp.text = error.GenerateErrorReport();
     }
 
-    public void  Login()
+    public void Login()
     {
-        var request = new LoginWithEmailAddressRequest { Email = userEmailLogIn.text, Password = Encrypt(userPasswordLogIn.text)};
-        PlayFabClientAPI.LoginWithEmailAddress(request,LogInSuccess, LogInSuccess);
+        var request = new LoginWithEmailAddressRequest { Email = userEmailLogIn.text, Password = Encrypt(userPasswordLogIn.text) };
+        PlayFabClientAPI.LoginWithEmailAddress(request, LogInSuccess, LogInSuccess);
 
     }
 
@@ -116,7 +116,7 @@ public class PlayFabControls : MonoBehaviour
     }
 
 
-
+    /*
     public void RecoverPassword()
     {
         if (string.IsNullOrEmpty(userEmail.text))
@@ -130,12 +130,13 @@ public class PlayFabControls : MonoBehaviour
 
         PlayFabClientAPI.SendAccountRecoveryEmail(request, OnPasswordRecoverySuccess, OnPasswordRecoveryFailure);
     }
-
+    */
+    
     private void OnPasswordRecoverySuccess(SendAccountRecoveryEmailResult result)
     {
         Debug.Log("Email di recupero inviata con successo all'indirizzo: " + userEmail);
     }
-
+    
     private IEnumerator ShowErrorAndHideRecovery(PlayFabError error)
     {
         Debug.LogError("Recupero password fallito: " + error.ErrorMessage);
@@ -150,10 +151,29 @@ public class PlayFabControls : MonoBehaviour
         // Disattiva il Canvas dopo il ritardo
         errorSendRecovery.gameObject.SetActive(false);
     }
+    
     private void OnPasswordRecoveryFailure(PlayFabError error)
     {
         StartCoroutine(ShowErrorAndHideRecovery(error));
     }
+    /*
+    public void RecoverPassword()
+    {
+        var request = new SendAccountRecoveryEmailRequest
+        {
+            Email = emailBackUp.text,
+            TitleId = "32B77",
+        };
+        PlayFabClientAPI.SendAccountRecoveryEmail(request, OnPasswordRecoverySuccess, OnPasswordRecoveryFailure);
+    }
+   */
+
+    public void ResetPasswordButton()
+    {
+        var request = new SendAccountRecoveryEmailRequest { Email = emailBackUp.text, TitleId = playfabTitleId };
+
+        PlayFabClientAPI.SendAccountRecoveryEmail(request, OnPasswordRecoverySuccess, OnPasswordRecoveryFailure);
+
+    }
+
 }
-
-

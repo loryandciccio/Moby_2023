@@ -11,7 +11,7 @@ public class Iguana : MonoBehaviour
         if (collision.CompareTag("Newbie") && PlayerPrefs.GetInt("numeroMosche") == 10 && SceneManager.GetActiveScene().name != "level3")
         {
             UnlockNewLevel();
-            SceneManager.LoadScene("level" + (SceneManager.GetActiveScene().buildIndex + 1));
+            SceneManager.LoadScene("level" + (SceneManager.GetActiveScene().buildIndex));
             PlayerPrefs.SetInt("numeroMosche",0);
         }
         if (collision.CompareTag("Newbie") && PlayerPrefs.GetInt("numeroMosche") == 10 && SceneManager.GetActiveScene().name == "level3")

@@ -1114,6 +1114,7 @@ MonoBehaviour:
   errorSignUp: {fileID: 1652954858}
   errorLogIn: {fileID: 1327384251}
   errorSendRecovery: {fileID: 1505726197}
+  emailBackUp: {fileID: 1286255429}
 --- !u!4 &493235288
 Transform:
   m_ObjectHideFlags: 0
