@@ -77,7 +77,7 @@ public class Collisioni : MonoBehaviour
 
         if (collision.gameObject.tag == "puntina")
         {
-            gameManager.energia -= 30;
+            gameManager.energia -= 10;
             if (gameManager.energia < 0)
             {
                 gameManager.energia = 0;

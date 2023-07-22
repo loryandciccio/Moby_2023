@@ -16,6 +16,11 @@ public class Movimento : MonoBehaviour
     bool premoSinistro = false;
     bool salto = false;
 
+    bool isGrounded;
+    public Transform groundCheck;
+    public LayerMask whatIsGround;
+    public float checkRadius;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +32,9 @@ public class Movimento : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //variabile atterraggio
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
+
         // se il tasto premuto e' freccia destra sposto il player di 1 a destra
         if (Input.GetKey(KeyCode.RightArrow) || premoDestro == true)
         {
@@ -49,7 +57,7 @@ public class Movimento : MonoBehaviour
         {
             animNewBie.SetInteger("camminata", 0);
         }
-        if (Input.GetKeyDown(KeyCode.Space) || salto == true)
+        if ((Input.GetKeyDown(KeyCode.Space) || salto == true) && isGrounded)
         {
             Debug.Log("salto");
             rb.AddForce(new Vector2(0, jump), ForceMode2D.Impulse);
